@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import Card from "../components/card/card";
 
-const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=634c653d'
+//const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=634c653d'
 
 class List extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       data: [],
       loading: true,
@@ -15,10 +15,11 @@ class List extends React.Component {
 
   }
   async componentDidMount() {
-    //const res = await fetch("../../assets/data.json");
-    const res = await fetch(`${API}&s=batman`);
+    const res = await fetch("../../assets/data.json");
+    //const res = await fetch(`${API}&s=batman`);
     const resJSON = await res.json();
-    this.setState({data: resJSON.search});
+    console.log(resJSON);
+    this.setState({data: resJSON});
     console.log(data);
 
 
